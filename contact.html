@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Contact</title>
+  <link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="contact">
+
+<nav>
+  <ul>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="coding.html">Coding</a></li>
+    <li><a href="travels.html">Travels</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+
+<div class="transbox" style="margin-top: 80px">
+  <h1>
+    Want to meet over coffee? Leave me a message!
+  </h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur.
+  </p>
+
+  <div>
+    <form>
+      <input type="text" placeholder="Name*" required>
+      <input type="text" placeholder="Email*" required>
+      <textarea placeholder="Leave your message"></textarea>
+    </form>
+
+    <button id="theButton" class="send">Send</button>
+
+    <p id="messageSent"></p>
+
+
+    <script type="text/javascript">
+      document.getElementById("theButton").onclick = submit
+      function submit() {
+        var x = document.getElementsByTagName("input")[0].value
+        var y = document.getElementsByTagName("input")[1].value
+        if (!x && !y) {
+          alert("Leave your name and email to send a message.")
+        }
+
+        else if (!x) {
+          alert("Leave your name to send a message.")
+        }
+
+        else if (!y) {
+          alert("Leave your email to send a message.")
+        }
+
+        else {
+            document.getElementById("messageSent").innerHTML = "Your message has been sent!"
+            console.log("checking")
+          }
+      }
+
+    </script>
+
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travels</title>
+  <link rel="stylesheet" href="custom.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="         crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<nav>
+  <ul>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="coding.html#">Coding</a></li>
+    <li><a href="travels.html" class="active">Travels</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+
+<div class="selectionbox">
+  <input type="radio" onclick="filterSelection('all')" name="category" checked> Show all
+  <input type="radio" onclick="filterSelection('animals')" name="category"> Animals
+  <input type="radio" onclick="filterSelection('people')" name="category"> People
+  <button class="button">Show/hide description</button>
+</div>
+
+
+<div class="row">
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110623.JPG" alt="People">
+          <div class="description">Coast town of Paracas</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column animals">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110643.JPG" alt="Animals">
+          <div class="description">Pelicans</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110657.JPG" alt="People">
+          <div class="description">Sipping pisco sour</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column animals">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110752.JPG" alt="Animals">
+          <div class="description">Sealions in Islas Ballestas</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110821.JPG" alt="People">
+          <div class="description">On top of the sanddunes</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110883.JPG" alt="People">
+          <div class="description">Wine tasting at Tacama</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1120554.JPG" alt="People">
+          <div class="description">On top of the Salkantay pass</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1120094.JPG" alt="People">
+          <div class="description">Playing table tennis</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1110952.JPG" alt="People">
+          <div class="description">Sandboarding</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column animals">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1120507.JPG" alt="Animals">
+          <div class="description">Horse</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1120646.JPG" alt="People">
+          <div class="description">View of Machu Picchu</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="column animals">
+    <div class="content">
+        <div class="gallery">
+          <img src="images/P1120695.JPG" alt="Animals">
+          <div class="description">Hi there, sloth!</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+  }
+}
+
+function AddClass(animals, name) {
+  var i, arr1, arr2;
+  arr1 = animals.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {animals.className += " " + arr2[i];}
+  }
+}
+
+function RemoveClass(people, name) {
+  var i, arr1, arr2;
+  arr1 = people.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  people.className = arr1.join(" ");
+}
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $(".description").toggle(500);
+    });
+});
+
+</script>
+
+</body>
+
+</html>
